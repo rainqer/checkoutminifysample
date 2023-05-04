@@ -1,0 +1,95 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+}
+
+android {
+  namespace 'com.threeds.checkoutminify'
+  compileSdk 33
+
+  defaultConfig {
+    applicationId "com.threeds.checkoutminify"
+    minSdk 24
+    targetSdk 33
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    vectorDrawables {
+      useSupportLibrary true
+    }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+    debug {
+      // simulate minifying just for reproduction purposes
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+  kotlinOptions {
+    jvmTarget = '11'
+  }
+  buildFeatures {
+    compose true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion '1.3.2'
+  }
+  packagingOptions {
+    resources {
+      excludes += '/META-INF/{AL2.0,LGPL2.1}'
+    }
+  }
+}
+
+dependencies {
+
+  implementation 'androidx.core:core-ktx:1.8.0'
+  implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+  implementation 'androidx.activity:activity-compose:1.5.1'
+  implementation platform('androidx.compose:compose-bom:2022.10.00')
+  implementation 'androidx.compose.ui:ui'
+  implementation 'androidx.compose.ui:ui-graphics'
+  implementation 'androidx.compose.ui:ui-tooling-preview'
+  implementation 'androidx.compose.material3:material3'
+  testImplementation 'junit:junit:4.13.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+  androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+  androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+  debugImplementation 'androidx.compose.ui:ui-tooling'
+  debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+  // Zowie 0.1.1 has incorrect obfuscation strategy (default, consecutive alphabet letters, no package, no prefix)
+  // The problem is fixed in zowie 0.1.2
+  implementation 'ai.zowie:android-sdk:0.1.1'
+//  implementation 'ai.zowie:android-sdk:0.1.2'
+
+  // When checkout 3ds is added to the project together with ai.zowie:0.1.1, we have the following error:
+  // Duplicate class a.a found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class b.a found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class b.b found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class b.c found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class c.a found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class e.a found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class f.a found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class f.b found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class f.c found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class g.a found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  // Duplicate class g.b found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
+  implementation 'com.checkout:checkout-sdk-3ds-android:2.0.4'
+
+  // when frames is added to the project together with checkout 3ds, we have the following error:
+  // Type com.checkout.eventlogger.R is defined multiple times: /Users/jangonera/projekty/poligon/checkoutminify/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar:com/checkout/eventlogger/R.class, /Users/jangonera/.gradle/caches/transforms-3/31d124a7cd8ba916f4f23c0cd71dc755/transformed/checkout-sdk-3ds-android-2.0.4-runtime.jar:com/checkout/eventlogger/R.class
+//  implementation 'com.github.checkout:frames-android:4.0.1'
+
+}
