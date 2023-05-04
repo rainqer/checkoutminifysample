@@ -92,6 +92,6 @@ dependencies {
 
   // when frames is added to the project together with checkout 3ds, we have the following error:
   // Type com.checkout.eventlogger.R is defined multiple times: /Users/jangonera/projekty/poligon/checkoutminify/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar:com/checkout/eventlogger/R.class, /Users/jangonera/.gradle/caches/transforms-3/31d124a7cd8ba916f4f23c0cd71dc755/transformed/checkout-sdk-3ds-android-2.0.4-runtime.jar:com/checkout/eventlogger/R.class
-//  implementation 'com.github.checkout:frames-android:4.0.1'
+  implementation 'com.github.checkout:frames-android:4.0.1'
 
 }
