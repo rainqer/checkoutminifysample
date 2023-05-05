@@ -50,15 +50,25 @@
 
 #Note:This is warning class being exposed from the checkout 3DS SDK and its known issue. We are adding dontwanr class rules
 # in 3DS SDK because it is not necessary to expose to merchant who use 3DS SDK. However, currently workaround of adding missing rules in proguard able to resolve missing class rules compile error
--dontwarn b.a.c.g.b
--dontwarn b.a.c.g.f
--dontwarn b.a.c.g.k$a
--dontwarn b.a.c.g.k$b
--dontwarn b.a.c.g.o
--dontwarn b.a.c.g.p
--dontwarn b.a.c.g.t
--dontwarn b.a.c.l.a
--dontwarn com.checkout.sessions.data.mapper.KeyMapper
+#-dontwarn b.a.c.g.b
+#-dontwarn b.a.c.g.f
+#-dontwarn b.a.c.g.k$a
+#-dontwarn b.a.c.g.k$b
+#-dontwarn b.a.c.g.o
+#-dontwarn b.a.c.g.p
+#-dontwarn b.a.c.g.t
+#-dontwarn b.a.c.l.a
+-dontwarn com.cko.threedsobfuscation.d2
+-dontwarn com.cko.threedsobfuscation.i2$a
+-dontwarn com.cko.threedsobfuscation.m2
+-dontwarn com.cko.threedsobfuscation.n2
+-dontwarn com.cko.threedsobfuscation.q7
+-dontwarn com.cko.threedsobfuscation.r2
+-dontwarn com.cko.threedsobfuscation.z1
+-dontwarn com.cko.threedsobfuscation.g6
+-dontwarn com.cko.threedsobfuscation.f6
+-dontwarn com.cko.threedsobfuscation.f6.a
+-dontwarn com.cko.threedsobfuscation.i2$b
 #
 #-dontwarn com.google.errorprone.annotations.Immutable
 #-dontwarn d.a.c.g.b
