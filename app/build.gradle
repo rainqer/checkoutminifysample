@@ -49,10 +49,6 @@ android {
       excludes += '/META-INF/{AL2.0,LGPL2.1}'
     }
   }
-
-  configurations.configureEach {
-    resolutionStrategy { cacheChangingModulesFor 0, 'seconds' }
-  }
 }
 
 dependencies {
@@ -89,7 +85,7 @@ dependencies {
   // Duplicate class f.c found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
   // Duplicate class g.a found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
   // Duplicate class g.b found in modules android-sdk-0.1.1-runtime (ai.zowie:android-sdk:0.1.1) and checkout-sdk-3ds-android-2.0.4-runtime (com.checkout:checkout-sdk-3ds-android:2.0.4)
-  implementation 'com.checkout:checkout-sdk-3ds-android:3.0.1-testonly-05'
+  implementation 'com.checkout:checkout-sdk-3ds-android:3.0.1-testonly-07'
 
   // when frames is added to the project together with checkout 3ds, we have the following error:
   // Type com.checkout.eventlogger.R is defined multiple times: /Users/jangonera/projekty/poligon/checkoutminify/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar:com/checkout/eventlogger/R.class, /Users/jangonera/.gradle/caches/transforms-3/31d124a7cd8ba916f4f23c0cd71dc755/transformed/checkout-sdk-3ds-android-2.0.4-runtime.jar:com/checkout/eventlogger/R.class
