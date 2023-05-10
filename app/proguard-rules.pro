@@ -69,6 +69,14 @@
 -dontwarn com.cko.threedsobfuscation.f6
 -dontwarn com.cko.threedsobfuscation.f6.a
 -dontwarn com.cko.threedsobfuscation.i2$b
+-dontwarn com.cko.threedsobfuscation.a2$a
+-dontwarn com.cko.threedsobfuscation.a2$b
+-dontwarn com.cko.threedsobfuscation.e2
+-dontwarn com.cko.threedsobfuscation.f2
+-dontwarn com.cko.threedsobfuscation.i7
+-dontwarn com.cko.threedsobfuscation.j2
+-dontwarn com.cko.threedsobfuscation.r1
+-dontwarn com.cko.threedsobfuscation.v1
 #
 #-dontwarn com.google.errorprone.annotations.Immutable
 #-dontwarn d.a.c.g.b
